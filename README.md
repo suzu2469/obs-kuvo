@@ -1,3 +1,5 @@
+リスペクト http://msir3316.hatenablog.com/entry/2020/01/18/020251   
+
 Rekordboxで現在再生中のトラックをKUVOのLive Playlist機能を使用してOBSへ流すことができるやつです   
 Puppeteer をつかって環境差異を無くす目的で作られました
 以下雑なメモ　近いうちに整備します

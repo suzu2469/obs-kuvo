@@ -53,7 +53,18 @@ async function setTrackInfo(trackInfo: TrackInfo) {
             text: trackInfo.artist
         })
     } catch (e) {
-        throw new Error('Sending text source failed')
+        try {
+            await obs.send('SetTextGDIPlusProperties', {
+                ...trackTitle,
+                text: trackInfo.name
+            })
+            await obs.send('SetTextGDIPlusProperties', {
+                ...trackArtist,
+                text: trackInfo.artist
+            })
+        } catch (e) {
+            throw new Error('Sending text source failed')
+        }
     }
 }
 

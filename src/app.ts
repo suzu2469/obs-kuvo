@@ -3,5 +3,9 @@ import setTrackInfo from './obs'
 
 export function bootstrap() {
     console.log('Server is started...')
-    crawlWith(5000, '178960', setTrackInfo)
+
+    const playlistId = process.argv[2]
+    if (!playlistId) throw new Error('Playlist ID must be set')
+
+    crawlWith(5000, playlistId, setTrackInfo)
 }

@@ -4,6 +4,8 @@ Rekordboxで現在再生中のトラックをKUVOのLive Playlist機能を使用
 Puppeteer をつかって環境差異を無くす目的で作られました
 以下雑なメモ　近いうちに整備します
 
+疑問点などあれば Issue か [twitter](https://twitter.com/suzuesa) へお願いします
+
 <img src="./assets/obs.png" width="800px" alt="" />
 
 # 事前準備

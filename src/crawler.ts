@@ -5,8 +5,20 @@ function createKuvoPlaylistURL(playlistId: string): string {
     return `https://kuvo.com/playlist/${playlistId}`
 }
 
-function currentTrack(tracks: TrackInfo[]): TrackInfo {
-    return tracks[0]
+async function elementToTrackInfo(
+    el: puppeteer.ElementHandle
+): Promise<TrackInfo> {
+    const artistEl = await el.$('.artist')
+    const titleEl = await el.$('.title')
+
+    return {
+        artist: (await (
+            await titleEl.getProperty('textContent')
+        ).jsonValue()) as string,
+        name: (await (
+            await titleEl.getProperty('textContent')
+        ).jsonValue()) as string
+    }
 }
 
 /**
@@ -33,24 +45,19 @@ async function crawlWith(
             const trackListEl = await page.$(
                 '#body > div.frame > div.r > div > div > section > article > div.tracklist-area'
             )
-            const trackEls = await trackListEl.$$('.row')
-            const trackList: TrackInfo[] = await Promise.all(
-                trackEls.map<Promise<TrackInfo>>(async (el) => ({
-                    name: (await (
-                        await (await el.$('.title')).getProperty('textContent')
-                    ).jsonValue()) as string,
-                    artist: (await (
-                        await (await el.$('.artist')).getProperty('textContent')
-                    ).jsonValue()) as string
-                }))
-            )
+            const currentTrackEls = await trackListEl.$$('.row.on')
 
-            const track = currentTrack(trackList)
-            // 一番上に表示されたものを返却
-            callback(track)
+            if (currentTrackEls.length <= 0) {
+                callback({ artist: '', name: '' })
+                console.log(`Currently track is ... Not Found`)
+                return
+            }
+
+            const trackInfo = await elementToTrackInfo(currentTrackEls[0])
+            callback(await elementToTrackInfo(currentTrackEls[0]))
 
             console.log(
-                `Currently track is ... ${track.artist} - ${track.name}`
+                `Currently track is ... ${trackInfo.artist} - ${trackInfo.name}`
             )
         }, msec)
     } catch (e) {

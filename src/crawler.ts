@@ -6,10 +6,6 @@ function createKuvoPlaylistURL(playlistId: string): string {
 }
 
 function currentTrack(tracks: TrackInfo[]): TrackInfo {
-    // KUVO の仕様で、現在再生中の曲は10曲以上既にかけている場合は一番下に、1~9曲のときは一番上になる
-    if (tracks.length >= 10) {
-        return tracks[tracks.length - 1]
-    }
     return tracks[0]
 }
 

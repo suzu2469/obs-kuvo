@@ -6,7 +6,7 @@ function createKuvoPlaylistURL(playlistId: string): string {
 }
 
 function currentTrack(tracks: TrackInfo[]): TrackInfo {
-    return tracks[tracks.length - 1]
+    return tracks[0]
 }
 
 /**

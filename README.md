@@ -21,7 +21,7 @@ Puppeteer をつかって環境差異を無くす目的で作られました
 1. KUVOをRekordboxにセット
 1. RekordboxからLive Playlistを起動
 1. 現在使用中のKUVO PlaylistのIDをメモ
-1. このレポジトリをダウンロード
+1. このレポジトリをダウンロード (ソースコードは [リリースページ](https://github.com/suzu2469/obs-kuvo/releases) から最新のものをDLしてください
 1. ターミナルまたはコマンドプロンプト/PowerShellなどを開いてこのレポジトリのパスまで `cd` する
 1. `$ yarn install`
 1. `$ yarn build`

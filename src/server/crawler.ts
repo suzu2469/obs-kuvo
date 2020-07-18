@@ -34,7 +34,7 @@ async function crawlWith(
     playlistId: string,
     callback: (info: TrackInfo) => void
 ): Promise<() => void> {
-    let id: NodeJS.Timeout
+    let id: number
     try {
         const browser = await puppeteer.launch()
         const page = await browser.newPage()

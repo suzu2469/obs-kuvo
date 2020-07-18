@@ -1,0 +1,6 @@
+{
+    "ignore": [".git", "node_modules/**/node_modules", "dist"],
+    "watch": ["src"],
+    "exec": "webpack",
+    "ext": "js,ts,tsx,html"
+}

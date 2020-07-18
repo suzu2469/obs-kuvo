@@ -6,17 +6,38 @@
     "license": "MIT",
     "scripts": {
         "build": "tsc",
-        "dev": "ts-node ./src/index.ts"
+        "start": "electron ./bootstrap",
+        "watch": "nodemon"
     },
     "devDependencies": {
         "@types/node": "^14.0.10",
         "@types/puppeteer": "^3.0.0",
+        "@types/react": "^16.9.43",
+        "@types/react-dom": "^16.9.8",
+        "@types/styled-components": "^5.1.1",
+        "@types/styletron-engine-atomic": "^1.1.0",
+        "@types/styletron-react": "^5.0.2",
+        "@types/styletron-standard": "^2.0.0",
+        "@types/webpack": "^4.41.21",
+        "electron": "^9.1.0",
+        "html-webpack-plugin": "^4.3.0",
+        "nodemon": "^2.0.4",
         "prettier": "^2.0.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "styled-components": "^5.1.1",
+        "ts-loader": "^8.0.1",
         "ts-node": "^8.10.2",
-        "typescript": "^3.9.3"
+        "typescript": "^3.9.3",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.12"
     },
     "dependencies": {
+        "baseui": "^9.86.0",
+        "immer": "^7.0.5",
         "obs-websocket-js": "^4.0.1",
-        "puppeteer": "^3.3.0"
+        "puppeteer": "^3.3.0",
+        "styletron-engine-atomic": "^1.4.6",
+        "styletron-react": "^5.2.7"
     }
 }
